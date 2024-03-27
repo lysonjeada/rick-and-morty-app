@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CharacterViewProtocol {
-    func buildCells(characterCellData: CharacterCell)
+    func buildCells(characterCellData: [CharacterCell])
 }
 
 struct CharacterCell {
@@ -11,7 +11,7 @@ struct CharacterCell {
 
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
     
-    var characterCellData: CharacterCell?
+    var characterCellData: [CharacterCell]?
     let cellReuseIdentifier = "ImageCell"
     
     var interactor: CharacterInteractorProtocol?
@@ -55,7 +55,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         
 //        let currentCharacter = characterCellData[indexPath.item]
         if let characterCellData = characterCellData {
-            cell.build(image: characterCellData.image, name: characterCellData.name)
+            cell.build(image: characterCellData[indexPath.item].image, name: characterCellData[indexPath.item].name)
         }
         
         return cell
@@ -65,7 +65,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         interactor?.returnNumberOfCount() ?? 1
     }
     
-    func buildCells(characterCellData: CharacterCell) {
+    func buildCells(characterCellData: [CharacterCell]) {
         self.characterCellData = characterCellData
     }
     

@@ -9,6 +9,7 @@ protocol CharacterPresenterProtocol {
 class CharacterPresenter: CharacterPresenterProtocol {
     
     private var view: CharacterViewProtocol?
+    var characterList: [CharacterCell] = []
     
     init(view: CharacterViewProtocol) {
         self.view = view
@@ -18,7 +19,8 @@ class CharacterPresenter: CharacterPresenterProtocol {
         characterCellData.forEach { character in
             ImageDownloader.downloadImage(character.image) { _image, urlString in
                 let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
-                self.view?.buildCells(characterCellData: cell)
+                self.characterList.append(cell)
+                self.view?.buildCells(characterCellData: self.characterList)
             }
         }
     }
