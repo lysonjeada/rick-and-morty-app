@@ -16,13 +16,7 @@ class CharacterPresenter: CharacterPresenterProtocol {
     }
     
     func showValues(characterCellData: [CharacterCellData]) {
-        characterCellData.forEach { character in
-            ImageDownloader.downloadImage(character.image) { _image, urlString in
-                let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
-                self.characterList.append(cell)
-                self.view?.buildCells(characterCellData: self.characterList)
-            }
-        }
+        view?.buildCells(characterCellData: characterCellData)
     }
     
     func showError() {

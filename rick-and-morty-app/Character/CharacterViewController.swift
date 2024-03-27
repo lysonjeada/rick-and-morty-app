@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CharacterViewProtocol {
-    func buildCells(characterCellData: [CharacterCell])
+    func buildCells(characterCellData: [CharacterCellData])
 }
 
 struct CharacterCell {
@@ -11,7 +11,7 @@ struct CharacterCell {
 
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
     
-    var characterCellData: [CharacterCell]?
+    var characterCell: [CharacterCell]?
     let cellReuseIdentifier = "ImageCell"
     
     var interactor: CharacterInteractorProtocol?
@@ -42,7 +42,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isDirectionalLockEnabled = false
         return collectionView
@@ -54,8 +54,8 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         
 //        let currentCharacter = characterCellData[indexPath.item]
-        if let characterCellData = characterCellData {
-            cell.build(image: characterCellData[indexPath.item].image, name: characterCellData[indexPath.item].name)
+        if let characterCell = characterCell {
+            cell.build(image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
         }
         
         return cell
@@ -65,8 +65,13 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         interactor?.returnNumberOfCount() ?? 1
     }
     
-    func buildCells(characterCellData: [CharacterCell]) {
-        self.characterCellData = characterCellData
+    func buildCells(characterCellData: [CharacterCellData]) {
+        characterCellData.forEach { character in
+            ImageDownloader.downloadImage(character.image) { _image, urlString in
+                let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
+                self.characterCell?.append(cell)
+            }
+        }
     }
     
     func configViews() {
