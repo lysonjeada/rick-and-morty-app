@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class HomeTabBarController : UITabBarController {
+class HomeTabBarController: UITabBarController {
     
     var interactor: HomeTabBarInteractor?
     

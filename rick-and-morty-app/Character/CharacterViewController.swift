@@ -11,7 +11,7 @@ struct CharacterCell {
 
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
     
-    var characterCell: [CharacterCell]?
+    var characterCell: [CharacterCell]? = []
     let cellReuseIdentifier = "ImageCell"
     
     var interactor: CharacterInteractorProtocol?
@@ -21,11 +21,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         
         view.backgroundColor = .systemPurple
         
-        interactor?.fetch(completion: {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        })
+        interactor?.fetch()
         
         configViews()
         
@@ -62,7 +58,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        interactor?.returnNumberOfCount() ?? 1
+        characterCell?.count ?? 1
     }
     
     func buildCells(characterCellData: [CharacterCellData]) {
@@ -70,6 +66,9 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
             ImageDownloader.downloadImage(character.image) { _image, urlString in
                 let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
                 self.characterCell?.append(cell)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }

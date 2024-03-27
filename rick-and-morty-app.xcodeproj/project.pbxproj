@@ -20,7 +20,6 @@
 		24B6497C2BB20E56003FC89C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6497B2BB20E56003FC89C /* LocationViewController.swift */; };
 		24B6497E2BB2400E003FC89C /* CharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6497D2BB2400E003FC89C /* CharacterInteractor.swift */; };
 		24B649802BB2401F003FC89C /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B6497F2BB2401F003FC89C /* CharacterPresenter.swift */; };
-		24B649822BB24468003FC89C /* HomeTabBarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B649812BB24468003FC89C /* HomeTabBarFactory.swift */; };
 		24B649842BB24511003FC89C /* HomeTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B649832BB24511003FC89C /* HomeTabBarInteractor.swift */; };
 		24B649862BB2451B003FC89C /* HomeTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B649852BB2451B003FC89C /* HomeTabBarPresenter.swift */; };
 		24B649882BB3A59A003FC89C /* CharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B649872BB3A59A003FC89C /* CharacterFactory.swift */; };
@@ -42,7 +41,6 @@
 		24B6497B2BB20E56003FC89C /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		24B6497D2BB2400E003FC89C /* CharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInteractor.swift; sourceTree = "<group>"; };
 		24B6497F2BB2401F003FC89C /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
-		24B649812BB24468003FC89C /* HomeTabBarFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarFactory.swift; sourceTree = "<group>"; };
 		24B649832BB24511003FC89C /* HomeTabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarInteractor.swift; sourceTree = "<group>"; };
 		24B649852BB2451B003FC89C /* HomeTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarPresenter.swift; sourceTree = "<group>"; };
 		24B649872BB3A59A003FC89C /* CharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFactory.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				24B649712BB1FB9D003FC89C /* HomeTabBarController.swift */,
-				24B649812BB24468003FC89C /* HomeTabBarFactory.swift */,
 				24B649832BB24511003FC89C /* HomeTabBarInteractor.swift */,
 				24B649852BB2451B003FC89C /* HomeTabBarPresenter.swift */,
 			);
@@ -213,7 +210,6 @@
 				24B649802BB2401F003FC89C /* CharacterPresenter.swift in Sources */,
 				24B6495B2BB1F4AC003FC89C /* CharacterViewController.swift in Sources */,
 				24B649572BB1F4AC003FC89C /* AppDelegate.swift in Sources */,
-				24B649822BB24468003FC89C /* HomeTabBarFactory.swift in Sources */,
 				24B649762BB1FE6B003FC89C /* CustomCollectionViewCell.swift in Sources */,
 				24B649882BB3A59A003FC89C /* CharacterFactory.swift in Sources */,
 				24B649862BB2451B003FC89C /* HomeTabBarPresenter.swift in Sources */,

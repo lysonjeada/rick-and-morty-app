@@ -9,7 +9,6 @@ protocol CharacterPresenterProtocol {
 class CharacterPresenter: CharacterPresenterProtocol {
     
     private var view: CharacterViewProtocol?
-    var characterList: [CharacterCell] = []
     
     init(view: CharacterViewProtocol) {
         self.view = view

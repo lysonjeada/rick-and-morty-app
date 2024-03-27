@@ -7,208 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "82708A90-D4DB-4156-B129-480ECDBFEDBC"
+            uuid = "D41B5DF2-E442-4467-8FA1-026CE82E40DC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "buildCells(characterCellData:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "82708A90-D4DB-4156-B129-480ECDBFEDBC - 50ca60ce3b7b381"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "rick_and_morty_app.CharacterViewController.buildCells(characterCellData: Swift.Array&lt;rick_and_morty_app.CharacterCellData&gt;) -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "82708A90-D4DB-4156-B129-480ECDBFEDBC - 38c9e40e3edb5d63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (rick_and_morty_app.CharacterCellData) -&gt; () in rick_and_morty_app.CharacterViewController.buildCells(characterCellData: Swift.Array&lt;rick_and_morty_app.CharacterCellData&gt;) -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C405FCB6-1CFB-426E-8BAF-157C47CFE6C5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rick-and-morty-app/Character/CharacterPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "showValues(characterCellData:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5407C385-523A-46A5-9F05-28629BB7252A"
+            uuid = "EB3AF626-ED5C-407D-AC8D-27C5C173BAAB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5407C385-523A-46A5-9F05-28629BB7252A - 9cf6452232c7d11b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "rick_and_morty_app.CharacterViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "360">
-               </Location>
-               <Location
-                  uuid = "5407C385-523A-46A5-9F05-28629BB7252A - af376e0daec831ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in rick_and_morty_app.CharacterViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88EC0AA9-F4CC-4441-B030-6B6524761142"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "88EC0AA9-F4CC-4441-B030-6B6524761142 - af376e0daec831ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in rick_and_morty_app.CharacterViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "88EC0AA9-F4CC-4441-B030-6B6524761142 - 3cf7bc2277d79e8c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in rick_and_morty_app.CharacterViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "rick-and-morty-app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/CharacterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D7B589A9-2EA3-4027-A579-5C4F540CCAE6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7E9B0422-3D3A-4A3B-B94E-18FA24D34962"
+            uuid = "37E28B19-6806-45AB-8C4A-F2C88BF714B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E96C3995-12C2-4531-A85A-67A9F655CE8D"
+            uuid = "8948CA5A-81DA-4590-AD9A-557B4D48D05A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F719141-CE4D-41BD-A4AB-BF70EEBA3FB8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AE16BCA-EF80-461B-B396-19FAA61E4862"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "rick-and-morty-app/Character/CharacterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

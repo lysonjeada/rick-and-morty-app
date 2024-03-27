@@ -1,7 +1,7 @@
 import Foundation
 
 protocol CharacterInteractorProtocol {
-    func fetch(completion: @escaping () -> Void)
+    func fetch()
     func returnNumberOfCount() -> Int
 }
 
@@ -15,7 +15,7 @@ class CharacterInteractor: CharacterInteractorProtocol {
         self.presenter = presenter
     }
     
-    func fetch(completion: @escaping () -> Void) {
+    func fetch() {
         let apiManager = CharacterUseCase()
         
         apiManager.fetchData { [weak self] result in
@@ -26,7 +26,6 @@ class CharacterInteractor: CharacterInteractorProtocol {
                     self?.characterCellDataList.append(characterCellData)
                 }
                 self?.presenter?.showValues(characterCellData: self?.characterCellDataList ?? [])
-                completion()
             case .failure(_):
                 self?.presenter?.showError()
             }
