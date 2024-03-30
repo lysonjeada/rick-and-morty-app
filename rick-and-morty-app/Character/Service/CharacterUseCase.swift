@@ -1,12 +1,16 @@
 import Foundation
 
+protocol CharacterUseCaseProtocol {
+    func fetchData(completion: @escaping (Result<[Character], DataError>) -> Void)
+}
+
 enum DataError: Error {
     case invalidData
     case invalidResponse
     case message(_ error: Error?)
 }
 
-class CharacterUseCase {
+class CharacterUseCase: CharacterUseCaseProtocol {
     
     let defaults = UserDefaults.standard
 

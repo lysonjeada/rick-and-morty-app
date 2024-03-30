@@ -6,7 +6,8 @@ enum CharacterFactory {
     func build() -> CharacterViewController {
         let view = CharacterViewController()
         let presenter = CharacterPresenter(view: view)
-        let interactor = CharacterInteractor(presenter: presenter)
+        let useCase = CharacterUseCaseFactory.instance.build()
+        let interactor = CharacterInteractor(presenter: presenter, useCase: useCase)
         
         view.interactor = interactor
         
