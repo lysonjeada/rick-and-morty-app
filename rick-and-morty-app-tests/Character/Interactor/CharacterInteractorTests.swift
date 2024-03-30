@@ -3,15 +3,19 @@ import XCTest
 @testable import rick_and_morty_app
 
 class CharacterPresenterFake: CharacterPresenterProtocol {
-    var showValuesCalled: Bool = false
-    var showErrorCalled: Bool = false
+    enum Methods {
+        case didShowValuesCall
+        case didShowErrorCall
+    }
+    
+    var methodsCalled: [Methods] = []
     
     func showValues(characterCellData: [CharacterCellData]) {
-        showValuesCalled = true
+        methodsCalled.append(.didShowValuesCall)
     }
     
     func showError() {
-        showErrorCalled = true
+        methodsCalled.append(.didShowErrorCall)
     }
 }
 
@@ -24,19 +28,19 @@ class CharacterUseCaseSpy: CharacterUseCaseProtocol {
         case requestFailure
     }
     
-    var methodsCalled: [Methods]?
+    var methodsCalled: [Methods] = []
     
     func fetchData(completion: @escaping (Result<[Character], DataError>) -> Void) {
         completion(fetchAllResultToBeReturned)
         if isSuccess {
-            methodsCalled?.append(.requestSuccess)
+            methodsCalled.append(.requestSuccess)
         } else {
-            methodsCalled?.append(.requestFailure)
+            methodsCalled.append(.requestFailure)
         }
     }
 }
 
-class CharacteUseCaseTests: XCTestCase {
+class CharacterInteractorTests: XCTestCase {
     let useCase = CharacterUseCaseSpy()
     
     func testFetchSuccess() {
@@ -54,24 +58,22 @@ class CharacteUseCaseTests: XCTestCase {
         interactor.fetch()
         
         // Then
-        XCTAssertTrue(presenterSpy.showValuesCalled)
-        XCTAssertFalse(presenterSpy.showErrorCalled)
+        XCTAssertEqual(presenterSpy.methodsCalled, [.didShowValuesCall])
         XCTAssertEqual(interactor.numberOfPosts, 2) // Assuming there are 2 characters in stubbedCharacters
     }
     
     func testFetchFailure() {
-            // Given
-            let presenterSpy = CharacterPresenterFake()
-            let useCaseSpy = CharacterUseCaseSpy()
-            useCaseSpy.fetchAllResultToBeReturned = .failure(.message(nil))
-            let interactor = CharacterInteractor(presenter: presenterSpy, useCase: useCaseSpy)
-
-            // When
-            interactor.fetch()
-
-            // Then
-            XCTAssertTrue(presenterSpy.showErrorCalled)
-            XCTAssertFalse(presenterSpy.showValuesCalled)
-            XCTAssertEqual(interactor.numberOfPosts, 0) // Expecting numberOfPosts to be 0 due to failure
-        }
+        // Given
+        let presenterSpy = CharacterPresenterFake()
+        let useCaseSpy = CharacterUseCaseSpy()
+        useCaseSpy.fetchAllResultToBeReturned = .failure(.message(nil))
+        let interactor = CharacterInteractor(presenter: presenterSpy, useCase: useCaseSpy)
+        
+        // When
+        interactor.fetch()
+        
+        // Then
+        XCTAssertEqual(presenterSpy.methodsCalled, [.didShowErrorCall])
+        XCTAssertEqual(interactor.numberOfPosts, 0) // Expecting numberOfPosts to be 0 due to failure
+    }
 }
