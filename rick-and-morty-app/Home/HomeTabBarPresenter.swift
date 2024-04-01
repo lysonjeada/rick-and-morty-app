@@ -13,7 +13,6 @@ class HomeTabBarPresenter: HomeTabBarPresenterProtocol {
     func showValues(characterCellData: [CharacterCellData]) {
         characterCellData.forEach { character in
             ImageDownloader.downloadImage(character.image) { _image, urlString in
-                let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
                 self.view.addSomeTabItems()
             }
         }

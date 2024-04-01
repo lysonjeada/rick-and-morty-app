@@ -23,7 +23,7 @@ class CharacterInteractor: CharacterInteractorProtocol {
             switch result {
             case .success(let success):
                 success.forEach { character in
-                    let characterCellData = CharacterCellData(image: character.image, name: character.name)
+                    let characterCellData = CharacterCellData(name: character.name, image: character.image)
                     self?.characterCellDataList.append(characterCellData)
                 }
                 self?.numberOfPosts = success.count

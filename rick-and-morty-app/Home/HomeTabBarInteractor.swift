@@ -1,12 +1,12 @@
 import Foundation
 
-struct CharacterCellData {
-    var image: String
-    var name: String
-}
-
 protocol HomeTabBarInteractorProtocol {
     func fetch(completion: @escaping () -> Void)
+}
+
+struct CharacterCellData {
+    let name: String
+    let image: String
 }
 
 class HomeTabBarInteractor: HomeTabBarInteractorProtocol {
@@ -26,7 +26,7 @@ class HomeTabBarInteractor: HomeTabBarInteractorProtocol {
             switch result {
             case .success(let success):
                 success.forEach { character in
-                    let characterCellData = CharacterCellData(image: character.image, name: character.name)
+                    let characterCellData = CharacterCellData(name: character.name, image: character.image)
                     self?.characterCellDataList.append(characterCellData)
                 }
                 self?.presenter?.showValues(characterCellData: self?.characterCellDataList ?? [])

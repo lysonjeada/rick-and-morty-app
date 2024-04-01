@@ -4,11 +4,6 @@ protocol CharacterViewProtocol {
     func buildCells(characterCellData: [CharacterCellData])
 }
 
-struct CharacterCell {
-    var image: UIImage
-    var name: String
-}
-
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
     
     var characterCell: [CharacterCell]? = []
@@ -19,13 +14,9 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemPurple
-        
         interactor?.fetch()
         
         configViews()
-        
-        // Do any additional setup after loading the view.
     }
     
     lazy var collectionView: UICollectionView = {
@@ -41,6 +32,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isDirectionalLockEnabled = false
+        collectionView.layer.cornerRadius = 8
         return collectionView
     }()
     
@@ -49,7 +41,6 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
             return CustomCollectionViewCell()
         }
         
-//        let currentCharacter = characterCellData[indexPath.item]
         if let characterCell = characterCell {
             cell.build(image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
         }

@@ -27,6 +27,9 @@
 		24B990472BB77E020042A732 /* CharacterInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990462BB77E020042A732 /* CharacterInteractorTests.swift */; };
 		24B990492BB77FD10042A732 /* CharacterUseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990482BB77FD10042A732 /* CharacterUseCaseFactory.swift */; };
 		24B9904C2BB7A34B0042A732 /* CharacterUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9904B2BB7A34B0042A732 /* CharacterUseCaseTests.swift */; };
+		24B9904F2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */; };
+		24B990512BBA11630042A732 /* FavoritesCharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */; };
+		24B990532BBA303D0042A732 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990522BBA303D0042A732 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		24B990462BB77E020042A732 /* CharacterInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInteractorTests.swift; sourceTree = "<group>"; };
 		24B990482BB77FD10042A732 /* CharacterUseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUseCaseFactory.swift; sourceTree = "<group>"; };
 		24B9904B2BB7A34B0042A732 /* CharacterUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUseCaseTests.swift; sourceTree = "<group>"; };
+		24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterViewController.swift; sourceTree = "<group>"; };
+		24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterViewCell.swift; sourceTree = "<group>"; };
+		24B990522BBA303D0042A732 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +126,14 @@
 		24B6496A2BB1F726003FC89C /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				24B9904D2BBA0F950042A732 /* Favorites */,
 				24B649872BB3A59A003FC89C /* CharacterFactory.swift */,
 				24B6497F2BB2401F003FC89C /* CharacterPresenter.swift */,
 				24B6497D2BB2400E003FC89C /* CharacterInteractor.swift */,
 				24B649752BB1FE6B003FC89C /* CustomCollectionViewCell.swift */,
 				24B6495A2BB1F4AC003FC89C /* CharacterViewController.swift */,
 				24B6496B2BB1F742003FC89C /* Service */,
+				24B990522BBA303D0042A732 /* CharacterCell.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -198,6 +206,15 @@
 				24B990462BB77E020042A732 /* CharacterInteractorTests.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		24B9904D2BBA0F950042A732 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */,
+				24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B9904F2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift in Sources */,
 				24B649802BB2401F003FC89C /* CharacterPresenter.swift in Sources */,
 				24B6495B2BB1F4AC003FC89C /* CharacterViewController.swift in Sources */,
+				24B990532BBA303D0042A732 /* CharacterCell.swift in Sources */,
 				24B649572BB1F4AC003FC89C /* AppDelegate.swift in Sources */,
 				24B649762BB1FE6B003FC89C /* CustomCollectionViewCell.swift in Sources */,
 				24B649882BB3A59A003FC89C /* CharacterFactory.swift in Sources */,
@@ -314,6 +333,7 @@
 				24B649592BB1F4AC003FC89C /* SceneDelegate.swift in Sources */,
 				24B649842BB24511003FC89C /* HomeTabBarInteractor.swift in Sources */,
 				24B649792BB1FFD1003FC89C /* ImageDownloader.swift in Sources */,
+				24B990512BBA11630042A732 /* FavoritesCharacterViewCell.swift in Sources */,
 				24B6496D2BB1F758003FC89C /* CharacterUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

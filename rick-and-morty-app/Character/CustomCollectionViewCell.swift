@@ -4,6 +4,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     let cellReuseIdentifier = "ImageCell"
     var data: Data?
+    var characterCell: [CharacterCell]? = []
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -16,14 +17,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let image = UIImageView(frame: contentView.bounds)
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.cornerRadius = 2
         return image
     }()
     
-    func build(image: UIImage, name: String) {
-        productImage.image = image
-        nameLabel.text = name
-    }
+    lazy var likeButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,22 +38,47 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func build(image: UIImage, name: String) {
+        productImage.image = image
+        nameLabel.text = name
+    }
+    
+    @objc func likeButtonTapped() {
+        isSelected.toggle()
+        
+        let characterCellObject = CharacterCell(image: productImage.image ?? UIImage(), name: nameLabel.text ?? "")
+        characterCell?.append(characterCellObject)
+        if isSelected {
+            let cellEncodedData = try? NSKeyedArchiver.archivedData(withRootObject: characterCell ?? [], requiringSecureCoding: false)
+            UserDefaults.standard.set(cellEncodedData, forKey: "FavoriteLikeButtonTapped")
+        }
+        
+        updateImage()
+    }
+    
+    private func updateImage() {
+        let imageName = isSelected ? "heart.fill" : "heart"
+        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+    
     func showSkeleton() {
         // Enable skeleton view for the image
-//        productImage.isSkeletonable = true
-//        productImage.showAnimatedGradientSkeleton()
+        //        productImage.isSkeletonable = true
+        //        productImage.showAnimatedGradientSkeleton()
     }
     
     func hideSkeleton() {
         // Hide skeleton view for the image
-//        productImage.hideSkeleton()
+        //        productImage.hideSkeleton()
     }
     
     func configViews() {
         contentView.addSubview(nameLabel)
+        contentView.addSubview(likeButton)
         contentView.addSubview(productImage)
         
         contentView.bringSubviewToFront(nameLabel)
+        contentView.bringSubviewToFront(likeButton)
         
         NSLayoutConstraint.activate([
             productImage.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -60,7 +88,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
             
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             nameLabel.bottomAnchor.constraint(equalTo: productImage.bottomAnchor, constant: -14),
-            nameLabel.heightAnchor.constraint(equalToConstant: 22)
+            nameLabel.heightAnchor.constraint(equalToConstant: 22),
+            
+            likeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            likeButton.bottomAnchor.constraint(equalTo: productImage.bottomAnchor, constant: -14),
+            likeButton.heightAnchor.constraint(equalToConstant: 22)
         ])
     }
 }
