@@ -5,6 +5,7 @@ protocol HomeTabBarInteractorProtocol {
 }
 
 struct CharacterCellData {
+    let id: Int
     let name: String
     let image: String
 }
@@ -26,7 +27,7 @@ class HomeTabBarInteractor: HomeTabBarInteractorProtocol {
             switch result {
             case .success(let success):
                 success.forEach { character in
-                    let characterCellData = CharacterCellData(name: character.name, image: character.image)
+                    let characterCellData = CharacterCellData(id: character.id, name: character.name, image: character.image)
                     self?.characterCellDataList.append(characterCellData)
                 }
                 self?.presenter?.showValues(characterCellData: self?.characterCellDataList ?? [])

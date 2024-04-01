@@ -3,6 +3,7 @@ import Foundation
 protocol CharacterInteractorProtocol {
     func fetch()
     func returnNumberOfCount() -> Int
+    func unlikeCharacter(characterID: Int)
 }
 
 class CharacterInteractor: CharacterInteractorProtocol {
@@ -23,7 +24,7 @@ class CharacterInteractor: CharacterInteractorProtocol {
             switch result {
             case .success(let success):
                 success.forEach { character in
-                    let characterCellData = CharacterCellData(name: character.name, image: character.image)
+                    let characterCellData = CharacterCellData(id: character.id, name: character.name, image: character.image)
                     self?.characterCellDataList.append(characterCellData)
                 }
                 self?.numberOfPosts = success.count
@@ -37,5 +38,19 @@ class CharacterInteractor: CharacterInteractorProtocol {
     func returnNumberOfCount() -> Int {
         let savedCount = defaults.object(forKey: "CharacteresCount") as? Int ?? 1
         return savedCount
+    }
+    
+    func unlikeCharacter(characterID: Int) {
+        removeCharacterFromList(characterID: characterID)
+        
+        // Update the number of posts
+        numberOfPosts = characterCellDataList.count
+    }
+    
+    func removeCharacterFromList(characterID: Int) {
+        if let index = characterCellDataList.firstIndex(where: { $0.id == characterID }) {
+            characterCellDataList.remove(at: index)
+            presenter?.showValues(characterCellData: characterCellDataList)
+        }
     }
 }

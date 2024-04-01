@@ -5,6 +5,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let cellReuseIdentifier = "ImageCell"
     var data: Data?
     var characterCell: [CharacterCell]? = []
+    var characterId: Int?
+    var favoriteIds: [Int]? = []
+    var delegate: CharacterViewProtocol?
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -22,9 +25,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     lazy var likeButton: UIButton = {
         let button = UIButton()
-        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -34,23 +37,36 @@ class CustomCollectionViewCell: UICollectionViewCell {
         configViews()
     }
     
+    init(delegate: CharacterViewProtocol) {
+        self.delegate = delegate
+        
+        super.init(frame: .zero)
+        
+        configViews()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func build(image: UIImage, name: String) {
+    func build(id: Int, image: UIImage, name: String) {
+        self.characterId = id
         productImage.image = image
         nameLabel.text = name
     }
     
-    @objc func likeButtonTapped() {
+    @objc func likeButtonTapped(sender: UIButton) {
         isSelected.toggle()
         
-        let characterCellObject = CharacterCell(image: productImage.image ?? UIImage(), name: nameLabel.text ?? "")
-        characterCell?.append(characterCellObject)
-        if isSelected {
-            let cellEncodedData = try? NSKeyedArchiver.archivedData(withRootObject: characterCell ?? [], requiringSecureCoding: false)
-            UserDefaults.standard.set(cellEncodedData, forKey: "FavoriteLikeButtonTapped")
+        if let characterId = characterId {
+            favoriteIds?.append(characterId)
+            let defaults = UserDefaults.standard
+            defaults.set(favoriteIds, forKey: "FavoriteLikeButtonId")
+            defaults.synchronize()
+            
+//            if !isSelected {
+//                delegate?.unlikeCharacter(characterID: characterId)
+//            }
         }
         
         updateImage()

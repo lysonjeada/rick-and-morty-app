@@ -1,7 +1,13 @@
 import UIKit
 
-class FavoritesCharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+protocol FavoritesCharacterViewProtocol {
+    func buildCells(characterCellData: [CharacterCellData])
+}
+
+class FavoritesCharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, FavoritesCharacterViewProtocol {
     
+    var interactor: FavoritesCharacterInteractorProtocol?
+    var characterCell: [CharacterCell]? = []
     let cellReuseIdentifier = "FavoritesCharacterCell"
     
     lazy var collectionView: UICollectionView = {
@@ -21,37 +27,46 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
         return collectionView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         UserDefaults.standard.synchronize()
         
-        collectionView.reloadData()
+        interactor?.fetch()
         
         configViews()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        returnFavorites()?.count ?? 1
+        interactor?.returnFavoriteIds().count ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCharacterCell", for: indexPath) as? FavoritesCharacterViewCell else {
             return FavoritesCharacterViewCell()
         }
-
-        // Retrieve
-        if let savedData = UserDefaults.standard.data(forKey: "FavoriteLikeButtonTapped"),
-           let decodedCharacterCellObjects = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? [CharacterCell] {
-            cell.build(image: decodedCharacterCellObjects[indexPath.item].image, name: decodedCharacterCellObjects[indexPath.item].name)
-            // Use decodedCharacterCellObjects
+        
+        if let characterCell = characterCell, characterCell.count > indexPath.item {
+            cell.build(image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
         } else {
-            // Handle if no data found or unable to deserialize
+            print("vai abrir nao")
         }
         
         return cell
     }
     
-    func returnFavorites() -> [CharacterCell]? {
-        return UserDefaults.standard.object(forKey: "FavoriteLikeButtonTapped") as? [CharacterCell]
+    func buildCells(characterCellData: [CharacterCellData]) {
+        characterCellData.forEach { character in
+            ImageDownloader.downloadImage(character.image) { _image, urlString in
+                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name)
+                self.characterCell?.append(cell)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
     
     func configViews() {

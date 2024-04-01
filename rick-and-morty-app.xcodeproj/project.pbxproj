@@ -30,6 +30,9 @@
 		24B9904F2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */; };
 		24B990512BBA11630042A732 /* FavoritesCharacterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */; };
 		24B990532BBA303D0042A732 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990522BBA303D0042A732 /* CharacterCell.swift */; };
+		24B990552BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */; };
+		24B990572BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */; };
+		24B990592BBB41C90042A732 /* FavoritesCharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterViewController.swift; sourceTree = "<group>"; };
 		24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterViewCell.swift; sourceTree = "<group>"; };
 		24B990522BBA303D0042A732 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterInteractor.swift; sourceTree = "<group>"; };
+		24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterPresenter.swift; sourceTree = "<group>"; };
+		24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +219,9 @@
 			children = (
 				24B9904E2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift */,
 				24B990502BBA11630042A732 /* FavoritesCharacterViewCell.swift */,
+				24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */,
+				24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */,
+				24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -317,7 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B990572BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift in Sources */,
 				24B9904F2BBA0FAE0042A732 /* FavoritesCharacterViewController.swift in Sources */,
+				24B990552BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift in Sources */,
 				24B649802BB2401F003FC89C /* CharacterPresenter.swift in Sources */,
 				24B6495B2BB1F4AC003FC89C /* CharacterViewController.swift in Sources */,
 				24B990532BBA303D0042A732 /* CharacterCell.swift in Sources */,
@@ -332,6 +343,7 @@
 				24B990492BB77FD10042A732 /* CharacterUseCaseFactory.swift in Sources */,
 				24B649592BB1F4AC003FC89C /* SceneDelegate.swift in Sources */,
 				24B649842BB24511003FC89C /* HomeTabBarInteractor.swift in Sources */,
+				24B990592BBB41C90042A732 /* FavoritesCharacterFactory.swift in Sources */,
 				24B649792BB1FFD1003FC89C /* ImageDownloader.swift in Sources */,
 				24B990512BBA11630042A732 /* FavoritesCharacterViewCell.swift in Sources */,
 				24B6496D2BB1F758003FC89C /* CharacterUseCase.swift in Sources */,

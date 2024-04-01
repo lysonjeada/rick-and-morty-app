@@ -46,7 +46,7 @@ class HomeTabBarController: UITabBarController {
     
     func addSomeTabItems() {
         let vc1 = UINavigationController(rootViewController: CharacterFactory.instance.build())
-        let vc2 = UINavigationController(rootViewController: FavoritesCharacterViewController())
+        let vc2 = UINavigationController(rootViewController: FavoritesCharacterFactory.instance.build())
         vc1.title = "Home"
         vc2.title = "Favorites"
         setViewControllers([vc1, vc2], animated: false)

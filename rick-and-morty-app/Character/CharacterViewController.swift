@@ -2,12 +2,14 @@ import UIKit
 
 protocol CharacterViewProtocol {
     func buildCells(characterCellData: [CharacterCellData])
+    func unlikeCharacter(characterID: Int)
 }
 
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
     
     var characterCell: [CharacterCell]? = []
     let cellReuseIdentifier = "ImageCell"
+    var favoriteIds: [Int]? = []
     
     var interactor: CharacterInteractorProtocol?
     
@@ -38,12 +40,14 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? CustomCollectionViewCell else {
-            return CustomCollectionViewCell()
+            return CustomCollectionViewCell(delegate: self)
         }
         
         if let characterCell = characterCell {
-            cell.build(image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
+            cell.build(id: characterCell[indexPath.item].id, image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
         }
+        
+        cell.likeButton.tag = indexPath.item
         
         return cell
     }
@@ -52,10 +56,14 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         characterCell?.count ?? 1
     }
     
+    func unlikeCharacter(characterID: Int) {
+        interactor?.unlikeCharacter(characterID: characterID)
+    }
+    
     func buildCells(characterCellData: [CharacterCellData]) {
         characterCellData.forEach { character in
             ImageDownloader.downloadImage(character.image) { _image, urlString in
-                let cell = CharacterCell(image: _image ?? UIImage(), name: character.name)
+                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name)
                 self.characterCell?.append(cell)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
