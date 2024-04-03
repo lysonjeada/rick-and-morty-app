@@ -33,6 +33,8 @@
 		24B990552BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */; };
 		24B990572BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */; };
 		24B990592BBB41C90042A732 /* FavoritesCharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */; };
+		24B9905C2BBC3F0C0042A732 /* rick-and-morty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24B9905A2BBC3F0C0042A732 /* rick-and-morty.xcdatamodeld */; };
+		24B990812BBC509E0042A732 /* FavoriteCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B990802BBC509E0042A732 /* FavoriteCharacter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterInteractor.swift; sourceTree = "<group>"; };
 		24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterPresenter.swift; sourceTree = "<group>"; };
 		24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCharacterFactory.swift; sourceTree = "<group>"; };
+		24B9905B2BBC3F0C0042A732 /* rick-and-morty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "rick-and-morty.xcdatamodel"; sourceTree = "<group>"; };
+		24B990802BBC509E0042A732 /* FavoriteCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharacter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 				24B6495F2BB1F4AE003FC89C /* Assets.xcassets */,
 				24B649612BB1F4AE003FC89C /* LaunchScreen.storyboard */,
 				24B649642BB1F4AE003FC89C /* Info.plist */,
+				24B9905A2BBC3F0C0042A732 /* rick-and-morty.xcdatamodeld */,
 			);
 			path = "rick-and-morty-app";
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				24B990542BBB3ACD0042A732 /* FavoritesCharacterInteractor.swift */,
 				24B990562BBB3BEB0042A732 /* FavoritesCharacterPresenter.swift */,
 				24B990582BBB41C90042A732 /* FavoritesCharacterFactory.swift */,
+				24B990802BBC509E0042A732 /* FavoriteCharacter.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -335,9 +341,11 @@
 				24B649572BB1F4AC003FC89C /* AppDelegate.swift in Sources */,
 				24B649762BB1FE6B003FC89C /* CustomCollectionViewCell.swift in Sources */,
 				24B649882BB3A59A003FC89C /* CharacterFactory.swift in Sources */,
+				24B990812BBC509E0042A732 /* FavoriteCharacter.swift in Sources */,
 				24B649862BB2451B003FC89C /* HomeTabBarPresenter.swift in Sources */,
 				24B649722BB1FB9D003FC89C /* HomeTabBarController.swift in Sources */,
 				24B6497E2BB2400E003FC89C /* CharacterInteractor.swift in Sources */,
+				24B9905C2BBC3F0C0042A732 /* rick-and-morty.xcdatamodeld in Sources */,
 				24B6497C2BB20E56003FC89C /* LocationViewController.swift in Sources */,
 				24B6496F2BB1FA28003FC89C /* CharacterResponse.swift in Sources */,
 				24B990492BB77FD10042A732 /* CharacterUseCaseFactory.swift in Sources */,
@@ -618,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24B9905A2BBC3F0C0042A732 /* rick-and-morty.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24B9905B2BBC3F0C0042A732 /* rick-and-morty.xcdatamodel */,
+			);
+			currentVersion = 24B9905B2BBC3F0C0042A732 /* rick-and-morty.xcdatamodel */;
+			path = "rick-and-morty.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 24B6494B2BB1F4AC003FC89C /* Project object */;
 }

@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  rick-and-morty-app
-//
-//  Created by Amaryllis Rosemaria Baldrez Calefi on 25/03/24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

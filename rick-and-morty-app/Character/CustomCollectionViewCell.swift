@@ -5,8 +5,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let cellReuseIdentifier = "ImageCell"
     var data: Data?
     var characterCell: [CharacterCell]? = []
-    var characterId: Int?
-    var favoriteIds: [Int]? = []
+    var characterName: String?
+    var characterImage: String?
     var delegate: CharacterViewProtocol?
     
     lazy var nameLabel: UILabel = {
@@ -37,32 +37,30 @@ class CustomCollectionViewCell: UICollectionViewCell {
         configViews()
     }
     
-    init(delegate: CharacterViewProtocol) {
-        self.delegate = delegate
-        
-        super.init(frame: .zero)
-        
-        configViews()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setCell(delegate: CharacterViewProtocol) {
+        self.delegate = delegate
+    }
+    
     func build(id: Int, image: UIImage, name: String) {
-        self.characterId = id
         productImage.image = image
         nameLabel.text = name
+    }
+    
+    func setNameAndImage(name: String, image: String) {
+        self.characterName = name
+        self.characterImage = image
     }
     
     @objc func likeButtonTapped(sender: UIButton) {
         isSelected.toggle()
         
-        if let characterId = characterId {
-            favoriteIds?.append(characterId)
-            let defaults = UserDefaults.standard
-            defaults.set(favoriteIds, forKey: "FavoriteLikeButtonId")
-            defaults.synchronize()
+        if let characterName = characterName, let characterImage = characterImage {
+            
+            delegate?.saveFavorite(with: characterName, and: characterImage)
             
 //            if !isSelected {
 //                delegate?.unlikeCharacter(characterID: characterId)
@@ -76,6 +74,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let imageName = isSelected ? "heart.fill" : "heart"
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
+
     
     func showSkeleton() {
         // Enable skeleton view for the image

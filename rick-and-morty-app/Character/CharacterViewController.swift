@@ -1,8 +1,10 @@
 import UIKit
+import CoreData
 
 protocol CharacterViewProtocol {
     func buildCells(characterCellData: [CharacterCellData])
     func unlikeCharacter(characterID: Int)
+    func saveFavorite(with name: String, and image: String)
 }
 
 class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CharacterViewProtocol {
@@ -10,8 +12,13 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     var characterCell: [CharacterCell]? = []
     let cellReuseIdentifier = "ImageCell"
     var favoriteIds: [Int]? = []
+    var characterId: Int?
     
     var interactor: CharacterInteractorProtocol?
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        interactor?.deleteFavorites()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +47,12 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? CustomCollectionViewCell else {
-            return CustomCollectionViewCell(delegate: self)
+            return CustomCollectionViewCell()
         }
+        cell.setCell(delegate: self)
         
         if let characterCell = characterCell {
+            cell.setNameAndImage(name: characterCell[indexPath.item].name, image: characterCell[indexPath.item].imageString)
             cell.build(id: characterCell[indexPath.item].id, image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
         }
         
@@ -60,10 +69,20 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         interactor?.unlikeCharacter(characterID: characterID)
     }
     
+    func saveFavorite(with name: String, and image: String) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Characteres", in: context)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+        newUser.setValue(name, forKey: "name")
+        newUser.setValue(image, forKey: "image")
+        
+        interactor?.saveFavorite(with: context)
+    }
+    
     func buildCells(characterCellData: [CharacterCellData]) {
         characterCellData.forEach { character in
             ImageDownloader.downloadImage(character.image) { _image, urlString in
-                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name)
+                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name, imageString: character.image)
                 self.characterCell?.append(cell)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()

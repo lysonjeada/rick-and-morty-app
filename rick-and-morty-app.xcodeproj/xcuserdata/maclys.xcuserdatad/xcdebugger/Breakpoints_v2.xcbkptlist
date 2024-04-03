@@ -7,20 +7,35 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5185018A-F9A9-464E-AE22-CC79AFD73486"
+            uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "5185018A-F9A9-464E-AE22-CC79AFD73486 - 50e8919d554d15ba"
+                  uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888 - 736eaee3445a8201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (rick_and_morty_app.FavoriteCharacter) -&gt; () in rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "rick-and-morty-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888 - 50e8919d554d151d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,27 +45,27 @@
                   urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "844">
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "1152">
                </Location>
                <Location
-                  uuid = "5185018A-F9A9-464E-AE22-CC79AFD73486 - 975af10fa0ed374c"
+                  uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888 - 736eaee3445a8201"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; () in rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  symbolName = "closure #1 (rick_and_morty_app.FavoriteCharacter) -&gt; () in rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
                   moduleName = "rick-and-morty-app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
                   offsetFromSymbolStart = "84">
                </Location>
                <Location
-                  uuid = "5185018A-F9A9-464E-AE22-CC79AFD73486 - 50e8919d554d15ba"
+                  uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888 - 50e8919d554d1599"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -60,9 +75,24 @@
                   urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "780">
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+               <Location
+                  uuid = "0210D179-6AD8-4BFA-8A89-C26375F72888 - 736eaee3445a8285"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (rick_and_morty_app.FavoriteCharacter) -&gt; () in rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "rick-and-morty-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,16 +100,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4C7B977D-F323-4CBF-9684-6F6BC9B38165"
+            uuid = "6498D0FC-4953-4069-925B-167ECCCBB145"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6498D0FC-4953-4069-925B-167ECCCBB145 - 50e8919d554d6aa2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "rick-and-morty-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "6498D0FC-4953-4069-925B-167ECCCBB145 - e6cd0a6a6a1d826"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "rick-and-morty-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "6498D0FC-4953-4069-925B-167ECCCBB145 - e6cd0a6a6a1d9aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rick_and_morty_app.FavoritesCharacterViewController.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "rick-and-morty-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclys/Documents/rick-and-morty-app/rick-and-morty-app/Character/Favorites/FavoritesCharacterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "424">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B046C565-B722-4304-8CC7-73322527740B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "rick-and-morty-app/Character/CustomCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "likeButtonTapped(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1,7 +1,9 @@
 import UIKit
+import CoreData
 
 protocol FavoritesCharacterViewProtocol {
     func buildCells(characterCellData: [CharacterCellData])
+    func reloadData()
 }
 
 class FavoritesCharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, FavoritesCharacterViewProtocol {
@@ -27,20 +29,13 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
         return collectionView
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
-    }
-    
     override func viewDidLoad() {
-        UserDefaults.standard.synchronize()
-        
-        interactor?.fetch()
-        
         configViews()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        interactor?.returnFavoriteIds().count ?? 1
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return interactor?.returnFavoritesCount(context: context) ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,19 +43,31 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
             return FavoritesCharacterViewCell()
         }
         
-        if let characterCell = characterCell, characterCell.count > indexPath.item {
-            cell.build(image: characterCell[indexPath.item].image, name: characterCell[indexPath.item].name)
-        } else {
-            print("vai abrir nao")
-        }
+        cell.delegate = self
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        interactor?.returnFavorites(with: context).forEach({ character in
+            cell.build(image: character.image, name: character.name)
+        })
+        
+//        if let characterCell = characterCell, characterCell.count > indexPath.item {
+//            cell.build(image: characterCell[indexPath.row].image, name: characterCell[indexPath.row].name)
+//        } else {
+//            print("vai abrir nao")
+//        }
         
         return cell
+    }
+    
+    func reloadData() {
+        collectionView.reloadData()
     }
     
     func buildCells(characterCellData: [CharacterCellData]) {
         characterCellData.forEach { character in
             ImageDownloader.downloadImage(character.image) { _image, urlString in
-                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name)
+                let cell = CharacterCell(id: character.id, image: _image ?? UIImage(), name: character.name, imageString:  character.image)
                 self.characterCell?.append(cell)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()

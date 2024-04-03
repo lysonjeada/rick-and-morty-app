@@ -1,8 +1,9 @@
 import Foundation
+import CoreData
 
 protocol FavoritesCharacterInteractorProtocol {
-    func fetch()
-    func returnFavoriteIds() -> [Int]
+    func returnFavorites(with context: NSManagedObjectContext) -> [FavoriteCharacter]
+    func returnFavoritesCount(context: NSManagedObjectContext) -> Int
 }
 
 class FavoritesCharacterInteractor: FavoritesCharacterInteractorProtocol {
@@ -10,7 +11,7 @@ class FavoritesCharacterInteractor: FavoritesCharacterInteractorProtocol {
     private var presenter: FavoritesCharacterPresenterProtocol?
     private var useCase: CharacterUseCaseProtocol?
     public var characterCellDataList: [CharacterCellData] = []
-    let defaults = UserDefaults.standard
+    private var favoriteList: [FavoriteCharacter] = []
     private(set) var numberOfPosts: Int = 0
     
     init(presenter: FavoritesCharacterPresenterProtocol, useCase: CharacterUseCaseProtocol) {
@@ -18,27 +19,36 @@ class FavoritesCharacterInteractor: FavoritesCharacterInteractorProtocol {
         self.useCase = useCase
     }
     
-    func fetch() {
-        useCase?.fetchData { [weak self] result in
-            switch result {
-            case .success(let success):
-                success.forEach { character in
-                    if self?.returnFavoriteIds().contains(character.id) == true {
-                        let characterCellData = CharacterCellData(id: character.id, name: character.name, image: character.image)
-                        self?.characterCellDataList.append(characterCellData)
-                    }
-                }
-                self?.numberOfPosts = success.count
-                self?.presenter?.showValues(characterCellData: self?.characterCellDataList ?? [])
-            case .failure(_):
-                self?.presenter?.showError()
+    func returnFavoritesCount(context: NSManagedObjectContext) -> Int {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Characteres")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+//                if !isFavoriteAlreadyAdded(name: data.value(forKey: "name") as! String) {
+//                    
+//                }
+                let favoriteCharacter = FavoriteCharacter(name: data.value(forKey: "name") as! String, image: data.value(forKey: "image") as! String)
+                favoriteList.append(favoriteCharacter)
+                print(data.value(forKey: "name") as! String)
             }
+            
+        } catch {
+            print("Failed")
         }
+        return favoriteList.count
     }
     
-    func returnFavoriteIds() -> [Int] {
-        let savedCount = defaults.object(forKey: "FavoriteLikeButtonId") as? [Int] ?? []
-        return savedCount
+    func isFavoriteAlreadyAdded(name: String) -> Bool {
+        // Check if the favorite with the given name already exists in the favoriteList
+        return favoriteList.contains { $0.name == name }
     }
+    
+    func returnFavorites(with context: NSManagedObjectContext) -> [FavoriteCharacter] {
+        return favoriteList
+    }
+    
+    
 }
 

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 enum CharacterFactory {
     case instance
@@ -9,6 +10,9 @@ enum CharacterFactory {
         let useCase = CharacterUseCaseFactory.instance.build()
         let interactor = CharacterInteractor(presenter: presenter, useCase: useCase)
         
+        var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        
+        interactor.persistentContainer = context
         view.interactor = interactor
         
         return view

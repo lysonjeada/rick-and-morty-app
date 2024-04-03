@@ -4,6 +4,7 @@ class FavoritesCharacterViewCell: UICollectionViewCell {
     
     let cellReuseIdentifier = "FavoritesCharacterCell"
     var data: Data?
+    var delegate: FavoritesCharacterViewProtocol?
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -29,9 +30,15 @@ class FavoritesCharacterViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func build(image: UIImage, name: String) {
-        productImage.image = image
-        nameLabel.text = name
+    func build(image: String, name: String) {
+        ImageDownloader.downloadImage(image) { _image, urlString in
+            DispatchQueue.main.async {
+                self.nameLabel.text = name
+                self.productImage.image = _image
+                self.delegate?.reloadData()
+            }
+        }
+        
     }
 
     func configViews() {
