@@ -30,15 +30,31 @@ class FavoritesCharacterViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func build(image: String, name: String) {
-        ImageDownloader.downloadImage(image) { _image, urlString in
-            DispatchQueue.main.async {
-                self.nameLabel.text = name
-                self.productImage.image = _image
-                self.delegate?.reloadData()
-            }
-        }
+    
+    func build2(image: String, name: String) {
         
+        ImageDownloader.downloadImage(image) { _image, urlString in
+                    DispatchQueue.main.async {
+                        self.nameLabel.text = name
+                        self.productImage.image = _image
+                        self.delegate?.reloadData()
+                    }
+                }
+    }
+    
+    func build(image: String, name: String) async {
+        do{
+            let img = try await ImageDownloader.downloadImageData(from: URL(string:image)!)/* { _image, urlString in
+                DispatchQueue.main.async {
+                    self.nameLabel.text = name
+                    self.productImage.image = _image
+                    self.delegate?.reloadData()
+                }*/
+            self.nameLabel.text = name
+            self.productImage.image = img
+        } catch{
+            print()
+        }
     }
 
     func configViews() {
