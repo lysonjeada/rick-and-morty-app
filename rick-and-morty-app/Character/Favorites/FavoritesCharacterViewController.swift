@@ -19,7 +19,7 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.delegate = self
+        //collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FavoritesCharacterViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
         collectionView.backgroundColor = .clear
@@ -32,10 +32,18 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
     override func viewDidLoad() {
         configViews()
     }
+    private var oldCount: Int = 0
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return interactor?.returnFavoritesCount(context: context) ?? 1
+        
+//        if (interactor?.oldCount == oldCount) {
+//            return oldCount
+//        }
+        
+        oldCount = interactor?.returnFavoritesCount(context: context) ?? 1
+        return oldCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,9 +55,19 @@ class FavoritesCharacterViewController: UIViewController, UICollectionViewDelega
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        interactor?.returnFavorites(with: context).forEach({ character in
+        let favorites = interactor?.returnFavorites(with: context)
+        
+        for data in favorites! {
+            Task.init {
+                do {
+                    await cell.build(image: data.image, name: data.name)
+                }
+            }
+        }
+            
+            /*.forEach({ character in
             cell.build(image: character.image, name: character.name)
-        })
+        })*/
         
 //        if let characterCell = characterCell, characterCell.count > indexPath.item {
 //            cell.build(image: characterCell[indexPath.row].image, name: characterCell[indexPath.row].name)
